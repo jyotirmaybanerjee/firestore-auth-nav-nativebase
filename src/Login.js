@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
-import { Button, Form, Item, Input, Text } from 'native-base';
+import { Button, Form, Icon, Item, Input, Text, Toast } from 'native-base';
 import auth from '@react-native-firebase/auth';
 
 export default class Login extends Component {
@@ -17,7 +17,12 @@ export default class Login extends Component {
     try {
       await auth().signInWithEmailAndPassword(email, password);
     } catch (e) {
-      console.error(e.message);
+      console.log(e.message);
+      Toast.show({
+        text: e.message,
+        buttonText: 'Ok',
+        type: 'danger'
+      });
     }
   }
 
@@ -25,6 +30,7 @@ export default class Login extends Component {
     return (
       <Form style={styles.container}>
         <Item>
+          <Icon active name="mail" />
           <Input
             placeholder="Email"
             autoCapitalize="none"
@@ -32,13 +38,14 @@ export default class Login extends Component {
           />
         </Item>
         <Item last>
+          <Icon active name="mail" />
           <Input
             placeholder="Password"
             autoCapitalize="none"
             onChangeText={password => this.setState({ password })}
           />
         </Item>
-        <Button block onPress={() => this.login()}>
+        <Button style={styles.loginBtn} rounded block onPress={() => this.login()}>
           <Text>Login</Text>
         </Button>
       </Form>
@@ -47,9 +54,7 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+  loginBtn: {
+    marginTop: 30
   }
 });

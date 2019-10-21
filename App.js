@@ -4,9 +4,20 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import auth from '@react-native-firebase/auth';
-import { Container, Header, Left, Body, Title, Subtitle, Right, Icon } from 'native-base';
+import {
+  Container,
+  Content,
+  Header,
+  Left,
+  Body,
+  Icon,
+  Title,
+  Subtitle,
+  Right,
+  Root
+} from 'native-base';
 
 import Login from './src/Login';
 import Register from './src/Register';
@@ -41,33 +52,48 @@ const App = () => {
 
   if (!user) {
     content = (
-      <>
+      <View style={styles.authContainer}>
         {!showRegister && (
           <>
             <Login />
-            <Text onPress={() => setShowRegister(true)}>Not an user ? Register!</Text>
+            <Text style={styles.registerLink} onPress={() => setShowRegister(true)}>
+              Not an user ? Register!
+            </Text>
           </>
         )}
         {showRegister && <Register />}
-      </>
+      </View>
     );
   }
 
   return (
-    <Container>
-      <Header>
-        <Left />
-        <Body>
-          <Title>Title</Title>
-          <Subtitle>Welcome {user ? user.email : ''}</Subtitle>
-        </Body>
-        <Right>
-          <Icon name="ios-power" onPress={() => onSignout()} />
-        </Right>
-      </Header>
-      <View>{content}</View>
-    </Container>
+    <Root>
+      <Container>
+        <Header>
+          <Left />
+          <Body>
+            <Title>Title</Title>
+            <Subtitle>Welcome {user ? user.email : ''}</Subtitle>
+          </Body>
+          <Right>{user && <Icon name="ios-power" onPress={() => onSignout()} />}</Right>
+        </Header>
+        <View>{content}</View>
+      </Container>
+    </Root>
   );
 };
+
+const styles = StyleSheet.create({
+  authContainer: {
+    flex: 1,
+    padding: 10,
+    marginTop: 30
+  },
+  registerLink: {
+    marginTop: 30,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
 
 export default App;

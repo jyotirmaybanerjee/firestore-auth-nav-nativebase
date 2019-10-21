@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, Item, Input, Label, Text } from 'native-base';
+import { StyleSheet } from 'react-native';
+import { Button, Form, Item, Input, Label, Text, Toast } from 'native-base';
 import auth from '@react-native-firebase/auth';
 
 export default class Register extends Component {
@@ -16,7 +17,12 @@ export default class Register extends Component {
     try {
       await auth().createUserWithEmailAndPassword(email, password);
     } catch (e) {
-      console.error(e.message);
+      console.log(e.message);
+      Toast.show({
+        text: e.message,
+        buttonText: 'Ok',
+        type: 'danger'
+      });
     }
   }
 
@@ -31,10 +37,16 @@ export default class Register extends Component {
           <Label>Password</Label>
           <Input autoCapitalize="none" onChange={password => this.setState({ password })} />
         </Item>
-        <Button block onPress={() => this.register()}>
+        <Button style={StyleSheet.registerBtn} block rounded onPress={() => this.register()}>
           <Text>Register</Text>
         </Button>
       </Form>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  registerBtn: {
+    marginTop: 30
+  }
+});
