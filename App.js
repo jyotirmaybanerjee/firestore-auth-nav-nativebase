@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { Container, Header, Left, Body, Title, Subtitle, Right, Icon } from 'native-base';
 
@@ -65,7 +65,7 @@ const App = () => {
           <Icon name="ios-power" onPress={() => onSignout()} />
         </Right>
       </Header>
-      {content}
+      <View>{content}</View>
     </Container>
   );
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Content, Form, Item, Input, Text } from 'native-base';
+import { Button, Form, Item, Input, Label, Text } from 'native-base';
 import auth from '@react-native-firebase/auth';
 
 export default class Register extends Component {
@@ -22,29 +22,19 @@ export default class Register extends Component {
 
   render() {
     return (
-      <Container>
-        <Content>
-          <Form>
-            <Item>
-              <Input
-                placeholder="Email"
-                autoCapitalize="none"
-                onChange={email => this.setState({ email })}
-              />
-            </Item>
-            <Item last>
-              <Input
-                placeholder="Password"
-                autoCapitalize="none"
-                onChange={password => this.setState({ password })}
-              />
-            </Item>
-            <Button block onPress={() => this.register()}>
-              <Text>Register</Text>
-            </Button>
-          </Form>
-        </Content>
-      </Container>
+      <Form>
+        <Item floatLabel>
+          <Label>Email</Label>
+          <Input autoCapitalize="none" onChangeText={email => this.setState({ email })} />
+        </Item>
+        <Item floatLabel last>
+          <Label>Password</Label>
+          <Input autoCapitalize="none" onChange={password => this.setState({ password })} />
+        </Item>
+        <Button block onPress={() => this.register()}>
+          <Text>Register</Text>
+        </Button>
+      </Form>
     );
   }
 }
