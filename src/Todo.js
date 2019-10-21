@@ -1,6 +1,6 @@
 import React from 'react';
 import firestore from '@react-native-firebase/firestore';
-import { Container, Content, List, ListItem, Text, Left, Right, Icon } from 'native-base';
+import { ListItem, Text, Left, Right, Icon } from 'native-base';
 
 const Todo = ({ id, title, complete }) => {
   async function toggleComplete() {
@@ -13,23 +13,12 @@ const Todo = ({ id, title, complete }) => {
   }
 
   return (
-    <Container>
-      <Content>
-        <List>
-          <ListItem onPress={() => toggleComplete()}>
-            <Text>{title}</Text>
-          </ListItem>
-          <ListItem>
-            <Left>
-              {complete ? <Icon name="ios-checkmark" /> : <Icon name="ios-code-working" />}
-            </Left>
-            <Right>
-              <Text>{title}</Text>
-            </Right>
-          </ListItem>
-        </List>
-      </Content>
-    </Container>
+    <ListItem onPress={() => toggleComplete()}>
+      <Left>{complete ? <Icon name="ios-checkmark" /> : <Icon name="ios-code-working" />}</Left>
+      <Right>
+        <Text>{title}</Text>
+      </Right>
+    </ListItem>
   );
 };
 

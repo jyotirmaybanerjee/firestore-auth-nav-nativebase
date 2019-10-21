@@ -12,10 +12,11 @@ export const Todos = () => {
   const ref = firestore().collection('todos');
 
   async function addTodo() {
-    await ref.add({
+    const newTodo = {
       title: todo,
       complete: false
-    });
+    };
+    await ref.add(newTodo);
     setTodo('');
   }
 
