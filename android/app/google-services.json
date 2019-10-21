@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "179508062113",
+    "firebase_url": "https://finance-33291.firebaseio.com",
+    "project_id": "finance-33291",
+    "storage_bucket": "finance-33291.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179508062113:android:39bef4eb156865a33c0de0",
+        "android_client_info": {
+          "package_name": "com.jyo.finance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179508062113-kp5uave0rv730unsl698def63bljib0d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3QZvV56tRAuGWJg5z2IYactvFcD9EIZw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179508062113-kp5uave0rv730unsl698def63bljib0d.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "179508062113-gem93o0jmio2rrm17bterh4itc0egnuf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jyo.finance"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
