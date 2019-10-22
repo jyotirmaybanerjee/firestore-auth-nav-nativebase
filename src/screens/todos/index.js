@@ -1,14 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList } from 'react-native';
-import { Button, Container, Content, Form, Icon, Item, Picker, Text, Spinner } from 'native-base';
+import {
+  Body,
+  Button,
+  Container,
+  Content,
+  Form,
+  Header,
+  Icon,
+  Item,
+  Left,
+  Picker,
+  Right,
+  Spinner,
+  Subtitle,
+  Text,
+  Title
+} from 'native-base';
 import firestore from '@react-native-firebase/firestore';
 import Todo from './Todo';
 
-export const Todos = () => {
+export const Todos = ({ navigation }) => {
   const [todo, setTodo] = useState('');
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState([]);
-
   const ref = firestore().collection('todos');
 
   async function addTodo() {
@@ -44,10 +59,23 @@ export const Todos = () => {
 
   return (
     <Container>
+      <Header>
+        <Left>
+          <Button transparent onPress={() => navigation.openDrawer()}>
+            <Icon name="menu" />
+          </Button>
+        </Left>
+        <Body>
+          <Title>Todos</Title>
+          <Subtitle>Welcome</Subtitle>
+        </Body>
+        <Right>
+          <Icon name="ios-power" onPress={() => navigation.navigate('Signout')} />
+        </Right>
+      </Header>
       <Content>
         <Text>List of TODOs!</Text>
         <FlatList
-          style={{ flex: 1 }}
           data={todos}
           keyExtractor={item => item.id}
           renderItem={({ item }) => <Todo {...item} />}

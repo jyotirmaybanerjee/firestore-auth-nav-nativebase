@@ -31,12 +31,13 @@ class Counter extends Component {
           </Body>
           <Right />
         </Header>
+
         <Content padder>
           <Card style={styles.mb}>
             <CardItem header button onPress={() => this.props.dispatch({ type: 'INCREMENT' })}>
               <Text>Increment</Text>
             </CardItem>
-            <CardItem button onPress={() => {}}>
+            <CardItem button onPress={() => alert('This is Card Body')}>
               <Body>
                 <Text>{this.props.count}</Text>
               </Body>

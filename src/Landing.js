@@ -11,8 +11,9 @@ import { Container, Content, Header, Left, Body, Right } from 'native-base';
 export const Landing = ({ navigation }) => {
   // Set an initilizing state whilst Firebase connects
   const [initilizing, setInitilizing] = useState(true);
-  const [user, setUser] = useState(); // Handle user state changes
+  const [user, setUser] = useState();
 
+  // Handle user state changes
   function onAuthStateChanged(usr) {
     setUser(usr);
     if (initilizing) setInitilizing(false);

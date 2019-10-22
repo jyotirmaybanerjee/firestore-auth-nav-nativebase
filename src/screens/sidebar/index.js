@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Image, FlatList } from 'react-native';
 import {
   Content,
-  Text, // List,
+  Text,
+  // List,
   ListItem,
   Icon,
   Container,
@@ -50,6 +51,7 @@ class SideBar extends Component {
         <Content bounces={false} style={{ flex: 1, backgroundColor: '#fff', top: -1 }}>
           <Image source={drawerCover} style={styles.drawerCover} />
           <Image square style={styles.drawerImage} source={drawerImage} />
+
           <FlatList
             data={datas}
             renderItem={({ item }) => (
