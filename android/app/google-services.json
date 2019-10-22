@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:179508062113:android:39bef4eb156865a33c0de0",
         "android_client_info": {
-          "package_name": "com.jyo.finance"
+          "package_name": "com.finance"
         }
       },
       "oauth_client": [
@@ -30,13 +30,6 @@
             {
               "client_id": "179508062113-kp5uave0rv730unsl698def63bljib0d.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "179508062113-gem93o0jmio2rrm17bterh4itc0egnuf.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.jyo.finance"
-              }
             }
           ]
         }
